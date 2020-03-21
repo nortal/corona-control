@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import {get} from "./helpers/http"
-import Form from "./components/Form"
+import CoronaForm from "./components/CoronaForm"
 
 function App() {
   const successCallback = (response: any) => {
@@ -10,7 +10,7 @@ function App() {
   get({path: "https://thevirustracker.com/free-api?global=stats", successCallback: successCallback, errorCallback: () => {}});
   return (
     <div className="App">
-      <Form/>
+      <CoronaForm onSubmitted={ (formData) => console.log(formData) }/>
     </div>
   );
 }

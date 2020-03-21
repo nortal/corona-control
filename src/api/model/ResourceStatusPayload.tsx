@@ -1,4 +1,4 @@
-enum StockStatus {
+export enum StockStatus {
     OK = "OK",
     LOW = "LOW",
     CRITICAL = "CRITICAL",

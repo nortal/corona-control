@@ -7,7 +7,7 @@ name: 'app'
 type: 'nodejs:10'
 
 # The hooks that will be triggered when the package is deployed.
-hooks:
+#hooks:
     # Build hooks can modify the application files on disk but not access any services like databases.
     # build: |
     #  npm run build

@@ -6,6 +6,10 @@ name: 'app'
 # The type key specifies the language and version for your application.
 type: 'nodejs:10'
 
+dependencies:
+  nodejs:
+    yarn: "*"
+
 # The hooks that will be triggered when the package is deployed.
 hooks:
     # Build hooks can modify the application files on disk but not access any services like databases.

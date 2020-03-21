@@ -1,6 +1,6 @@
 enum StockStatus {
     OK = "OK",
-    LOW = "CONTENT",
+    LOW = "LOW",
     CRITICAL = "CRITICAL",
     OUT_OF_STOCK = "OUT_OF_STOCK"
 }

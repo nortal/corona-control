@@ -1,8 +1,13 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import {get} from "./helpers/http"
 
 function App() {
+  const successCallback = (response) => {
+    console.warn("Got response: " + JSON.stringify(response))
+  };
+  get({path: "https://thevirustracker.com/free-api?global=stats", successCallback: successCallback, errorCallback: () => {}});
   return (
     <div className="App">
       <header className="App-header">

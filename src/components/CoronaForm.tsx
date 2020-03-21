@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
-import {DialogContent, FormControl, FormControlLabel, FormLabel, Radio, RadioGroup, TextField} from '@material-ui/core'
+import {DialogContent, DialogTitle, DialogActions, FormControl, FormControlLabel, FormLabel, Radio, RadioGroup, TextField} from '@material-ui/core'
 import ResourceStatusPayload, {StockStatus} from "../api/model/ResourceStatusPayload";
 import Button from "@material-ui/core/Button";
+import Container from '@material-ui/core/Container';
 
 
 interface CoronaFormProps {
@@ -94,6 +95,8 @@ const CoronaForm = (props: CoronaFormProps) => {
     };
 
     return (
+        <Container maxWidth="xs">
+        <DialogTitle>Submit your current status</DialogTitle>
         <DialogContent>
             <form>
                 <FormControl>
@@ -164,8 +167,11 @@ const CoronaForm = (props: CoronaFormProps) => {
                     />
                 </FormControl>
             </form>
-            <Button variant={"contained"} onClick={() => onSubmitted(values)}>Send the data!</Button>
         </DialogContent>
+        <DialogActions>
+            <Button variant={"contained"} onClick={() => onSubmitted(values)}>Send the data!</Button>
+        </DialogActions>
+        </Container>
     )
 };
 

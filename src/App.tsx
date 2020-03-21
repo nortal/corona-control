@@ -4,7 +4,7 @@ import './App.css';
 import {get} from "./helpers/http"
 
 function App() {
-  const successCallback = (response) => {
+  const successCallback = (response: any) => {
     console.warn("Got response: " + JSON.stringify(response))
   };
   get({path: "https://thevirustracker.com/free-api?global=stats", successCallback: successCallback, errorCallback: () => {}});

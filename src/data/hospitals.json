@@ -1,5 +1,16 @@
 [
     {
+        "id": "augusta-krankenhaus",
+        "name": "Augusta-Krankenhaus",
+        "address": "Amalienstr. 9, 40472 Düsseldorf",
+        "street": "Amalienstr.",
+        "houseNumber": "9",
+        "zipCode": "40472",
+        "city": "Düsseldorf",
+        "latitude": 51.2665093,
+        "longitude": 6.8247428
+    },
+    {
         "id": "evangelische-krankenhaus",
         "name": "Evangelische Krankenhaus",
         "address": "Kirchfeldstraße 40, 40217 Düsseldorf",

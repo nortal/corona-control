@@ -7,6 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import RatioLine, {RatioLineProps} from "./RatioLine";
 import {StockStatus} from "../api/model/ResourceStatusPayload";
 import StakeHolderStatusBlock from "./StakeHolderStatusBlock";
+import ResourceStatistics from "../api/model/Resources";
 
 const useStyles = makeStyles({
   root: {
@@ -36,7 +37,7 @@ export interface ResourceStatisticsCardProps extends RatioLineProps {
   stakeholderStatuses: StakeHolderStatus[]
 }
 
-const ResourceStatisticsCard = ({ label, stakeholderStatuses, ...ratioLineProps }: ResourceStatisticsCardProps & RouteComponentProps) => {
+const ResourceStatisticsCard = ({ label, stakeholderStatuses, ...ratioLineProps }: ResourceStatistics & RouteComponentProps) => {
   const classes = useStyles();
 
   return (

@@ -8,7 +8,8 @@
         "zipCode": "40472",
         "city": "Düsseldorf",
         "latitude": 51.2665093,
-        "longitude": 6.8247428
+        "longitude": 6.8247428,
+        "phone": "0211 90430"
     },
     {
         "id": "evangelische-krankenhaus",
@@ -19,7 +20,8 @@
         "zipCode": "40217",
         "city": "Düsseldorf",
         "latitude": 51.213191,
-        "longitude": 6.773039
+        "longitude": 6.773039,
+        "phone": "0211 9190"
     },
     {
         "id": "florence-nightingale-krankenhaus",
@@ -30,7 +32,8 @@
         "zipCode": "40489",
         "city": "Düsseldorf",
         "latitude": 51.30041569999999,
-        "longitude": 6.7494327
+        "longitude": 6.7494327,
+        "phone": "0211 4090"
     },
     {
         "id": "st-vinzenz-krankenhaus",
@@ -41,7 +44,8 @@
         "zipCode": "40477",
         "city": "Düsseldorf",
         "latitude": 51.2427743,
-        "longitude": 6.7903699
+        "longitude": 6.7903699,
+        "phone": "0211 95801"
     },
     {
         "id": "universitaetsklinikum",
@@ -52,6 +56,7 @@
         "zipCode": "40225",
         "city": "Düsseldorf",
         "latitude": 51.197122,
-        "longitude": 6.789379
+        "longitude": 6.789379,
+        "phone": "0211 8100"
     }
 ]

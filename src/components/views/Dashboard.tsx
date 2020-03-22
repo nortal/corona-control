@@ -1,9 +1,13 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
-import { Grid, Paper } from '@material-ui/core';
+import { Grid, Paper, CircularProgress } from '@material-ui/core';
 import ResourceStatisticsCard, {ResourceStatisticsCardProps} from "../ResourceStatisticsCard";
 import {StockStatus} from "../../api/model/ResourceStatusPayload";
+import { getDocs } from '../../helpers/elastic';
+import ResourceStatistics from '../../api/model/Resources';
+import { toResourceStatistics } from '../../helpers/data';
+
 import ResourceTotalCard, {ResourceTotalCardProps} from "../ResourceTotalCard";
 
 import ICU from "../../assets/ICU.png";
@@ -25,6 +29,12 @@ const useStyles = makeStyles(theme => ({
     fixedHeight: {
         height: 240,
     },
+    loader: {
+        display: 'flex',
+        '& > * + *': {
+          marginLeft: theme.spacing(2),
+        },
+      },
 }));
 
 const sampleStatistics = [{label: "Chirurgische Masken", nrOk: 50, nrLow: 150, nrCritical: 50, nrOutOfStock: 250,
@@ -54,12 +64,19 @@ const sampleResourceTotals = [
 const Dashboard = () => {
     const classes = useStyles();
     const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
-    const [resourceStatistics, setResourceStatistics] = useState<ResourceStatisticsCardProps[]>(sampleStatistics);
+    const [resourceStatistics, setResourceStatistics] = useState<ResourceStatistics[]>();
     const [resourceTotals, setResourceTotals] = useState<ResourceTotalCardProps[]>(sampleResourceTotals);
 
+    const successCallback = (response: any) => {
+        setResourceStatistics(toResourceStatistics(response.data.hits.hits));
+        console.log("resourceStatistics", JSON.stringify(resourceStatistics));
+    };
 
+    useEffect(() => {
+        getDocs({ successCallback });
+    }, []);
 
-    return (
+    return resourceStatistics ? (
         <Grid container spacing={3}>
             <Grid item xs={12}>
                 <Paper className={fixedHeightPaper}>
@@ -72,7 +89,7 @@ const Dashboard = () => {
                 </Paper>
             </Grid>
         </Grid>
-    );
+    ) : <div className={classes.loader}><CircularProgress /></div>;
 };
 
 export default Dashboard;

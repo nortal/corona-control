@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import CoronaForm from './CoronaForm';
+import CoronaForm from './views/CoronaForm';
 import { AppBar, Toolbar, Typography } from '@material-ui/core';
 import DirectionsRun from '@material-ui/icons/DirectionsRun';
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Box, List, ListItem, ListItemText } from '@material-ui/core';
-import { getSampleData } from '../helpers/elastic';
+import { getSampleData } from '../../helpers/elastic';
 
 const ElasticSandbox = () => {
     const [hits, setHits] = useState([]);

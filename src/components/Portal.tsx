@@ -19,9 +19,9 @@ import DashboardIcon from '@material-ui/icons/Dashboard';
 import LocalHospital from '@material-ui/icons/LocalHospital';
 import Search from '@material-ui/icons/Search';
 import MenuListItem from './MenuListItem';
-import Hospitals from './Hospitals';
-import Dashboard from './Dashboard';
-import ElasticSandbox from './ElasticSandbox';
+import Hospitals from './views/Hospitals';
+import Dashboard from './views/Dashboard';
+import ElasticSandbox from './views/ElasticSandbox';
 
 const drawerWidth = 240;
 

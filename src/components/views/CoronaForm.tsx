@@ -7,7 +7,7 @@ import {
     Radio,
     TextField,
 } from '@material-ui/core'
-import ResourceStatusPayload, {StockStatus} from "../api/model/ResourceStatusPayload";
+import ResourceStatusPayload, {StockStatus} from "../../api/model/ResourceStatusPayload";
 import Button from "@material-ui/core/Button";
 import {green, red, yellow, common} from "@material-ui/core/colors";
 import {makeStyles} from "@material-ui/core/styles";

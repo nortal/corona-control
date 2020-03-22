@@ -6,7 +6,7 @@ const containerStyle = {
     display: "table",
     width: "100%",
     height: "50px",
-    marginTop: "5px"
+    marginTop: "15px"
 };
 
 const horizontalCellStyle = {

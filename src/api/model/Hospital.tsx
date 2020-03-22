@@ -8,6 +8,7 @@ interface Hospital {
     city: string;
     latitude: number;
     longitude: number;
+    phone?: string;
     picture?: string;
 }
 

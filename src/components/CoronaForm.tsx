@@ -14,6 +14,7 @@ import {makeStyles} from "@material-ui/core/styles";
 
 
 interface CoronaFormProps {
+    visible?: boolean,
     onSubmitted: (values: ResourceStatusPayload) => void,
 }
 
@@ -59,9 +60,9 @@ const StatusField = (props: StatusFieldProps) => {
         onChange,
     } = props;
     const styles = [
-        useStyle(green[400], green[600])(),
-        useStyle(yellow[400], yellow[600])(),
-        useStyle(red[400], red[600])(),
+        useStyle("#81c784", "#4caf50")(),
+        useStyle("#ffb74d", "#ff9800")(),
+        useStyle("#e57373", "#f44336")(),
         useStyle(common.black, common.black)(),
     ];
     return (
@@ -101,7 +102,7 @@ const initialState: ResourceStatusPayload = {
 };
 
 const CoronaForm = (props: CoronaFormProps) => {
-    const { onSubmitted } = props;
+    const { onSubmitted, visible } = props;
     const [values, setValues] = useState<ResourceStatusPayload>(initialState);
 
     const possibleValues = Object.keys(StockStatus);
@@ -203,7 +204,7 @@ const CoronaForm = (props: CoronaFormProps) => {
                         onChange={(event => updateStatusField(event, "antiPneumoniaDrugStockStatus"))}
                     />
                 </div>
-            <Button variant={"contained"} onClick={() => onSubmitted(values)}>Daten senden!</Button>
+            { visible && (<Button color={"primary"} variant={"contained"} onClick={() => onSubmitted(values)}>Daten senden!</Button>) }
         </DialogContent>
     )
 };

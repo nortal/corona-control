@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route, BrowserRouter } from 'react-router-dom';
+import {Switch, Route, HashRouter} from 'react-router-dom';
 import { ThemeProvider } from '@material-ui/core/styles';
 import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
 import Portal from './components/Portal';
@@ -11,13 +11,13 @@ theme = responsiveFontSizes(theme);
 function App() {
   return (
     <ThemeProvider theme={theme}>
-    <BrowserRouter>
+    <HashRouter>
         <Switch>
           <Route path="/status/:hospitalId" component={Status} />
 
           <Route component={Portal} />
         </Switch>
-  </BrowserRouter>
+  </HashRouter>
   </ThemeProvider>
   );
 }

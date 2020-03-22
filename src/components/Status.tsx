@@ -30,8 +30,8 @@ const SuccessBox = ({ status }: {status: SubmissionStatus}) => (
         <div style={{ position: "absolute", left: "50%", top: "40%"}}>
             <div style={{position: "relative", left: "-50%", bottom: "-60%", opacity: 0.85}}>
                 { status === SubmissionStatus.OK && (<Alert variant="outlined" severity="success" color={undefined}>
-                    <AlertTitle>Successfully submitted the data!</AlertTitle>
-                    Redirecting to dashboard...
+                    <AlertTitle>Daten erfolgreich übermittelt!</AlertTitle>
+                    Weiterleitung zum Dashboard...
                 </Alert>)}
             </div>
         </div>

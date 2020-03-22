@@ -1,9 +1,13 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
-import {Grid, Paper, Typography} from '@material-ui/core';
+import { Grid, Paper, CircularProgress, Typography } from '@material-ui/core';
 import ResourceStatisticsCard, {ResourceStatisticsCardProps} from "../ResourceStatisticsCard";
 import {StockStatus} from "../../api/model/ResourceStatusPayload";
+import { getDocs } from '../../helpers/elastic';
+import ResourceStatistics from '../../api/model/Resources';
+import { toResourceStatistics } from '../../helpers/data';
+
 import ResourceTotalCard, {ResourceTotalCardProps} from "../ResourceTotalCard";
 
 import ICU from "../../assets/ICU.png";
@@ -37,7 +41,13 @@ const useStyles = makeStyles(theme => ({
         fontSize: "44px",
         lineHeight: "78px",
         color: "#1A1A1A"
-    }
+    },
+	loader: {
+        display: 'flex',
+        '& > * + *': {
+          marginLeft: theme.spacing(2),
+        },
+      }
 }));
 
 const sampleStatistics = [{label: "Chirurgische Masken", nrOk: 50, nrLow: 150, nrCritical: 50, nrOutOfStock: 250,
@@ -57,22 +67,29 @@ const sampleStatistics = [{label: "Chirurgische Masken", nrOk: 50, nrLow: 150, n
         ]}];
 
 const sampleResourceTotals = [
-    {label: "COVID-19-Patienten", iconSrc: people, numberTotal: 234},
-    {label: "In Intensivstationen", iconSrc: ICU, numberTotal: 13},
-    {label: "ICU lvl 3", iconSrc: ICU, numberTotal: 2},
+    {label: "COVID-19 Patienten", iconSrc: people, numberTotal: 234},
+    {label: "Intensiv Patienten", iconSrc: ICU, numberTotal: 13},
+    {label: "Kritische Patienten", iconSrc: ICU, numberTotal: 2},
     {label: "Freie Betten", iconSrc: bed, numberTotal: 1203},
-    {label: "Ventilatoren", iconSrc: bed, numberTotal: 457},
+    {label: "Beatmungsgeräte", iconSrc: bed, numberTotal: 457},
     ];
 
 const Dashboard = () => {
     const classes = useStyles();
     const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
-    const [resourceStatistics, setResourceStatistics] = useState<ResourceStatisticsCardProps[]>(sampleStatistics);
+    const [resourceStatistics, setResourceStatistics] = useState<ResourceStatistics[]>();
     const [resourceTotals, setResourceTotals] = useState<ResourceTotalCardProps[]>(sampleResourceTotals);
 
+    const successCallback = (response: any) => {
+        setResourceStatistics(toResourceStatistics(response.data.hits.hits));
+        console.log("resourceStatistics", JSON.stringify(resourceStatistics));
+    };
 
+    useEffect(() => {
+        getDocs({ successCallback });
+    }, []);
 
-    return (
+    return resourceStatistics ? (
         <Grid container spacing={3}>
             <Typography className={classes.title}>{"Krankenhausübersicht"}</Typography>
             <Grid item xs={12}>
@@ -88,7 +105,7 @@ const Dashboard = () => {
                 </Paper>
             </Grid>
         </Grid>
-    );
+    ) : <div className={classes.loader}><CircularProgress /></div>;
 };
 
 export default Dashboard;

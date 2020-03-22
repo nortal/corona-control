@@ -136,7 +136,7 @@ const CoronaForm = (props: CoronaFormProps) => {
             margin: "0 auto"
         }}>
                 <Typography variant="h4" component="h2" gutterBottom>
-                    Current status
+                    Aktueller Status
                 </Typography>
             <Paper variant={"outlined"} style={{ padding: "0 10px", marginBottom: 15 }}>
                 <FormControl style={{ width: "100%" }}>

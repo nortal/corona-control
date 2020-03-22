@@ -1,0 +1,35 @@
+[
+    {
+        "id": "evangelische-krankenhaus",
+        "name": "Evangelische Krankenhaus",
+        "address": "Kirchfeldstraße 40, 40217 Düsseldorf",
+        "street": "Kirchfeldstraße",
+        "houseNumber": "40",
+        "zipCode": "40217",
+        "city": "Düsseldorf",
+        "latitude": 51.213191,
+        "longitude": 6.773039
+    },
+    {
+        "id": "st-vinzenz-krankenhaus",
+        "name": "St. Vinzenz-Krankenhaus",
+        "address": "Schloßstr. 85, 40477 Düsseldorf",
+        "street": "Schloßstr.",
+        "houseNumber": "85",
+        "zipCode": "40477",
+        "city": "Düsseldorf",
+        "latitude": 51.2427743,
+        "longitude": 6.7903699
+    },
+    {
+        "id": "universitaetsklinikum",
+        "name": "Universitätsklinikum Düsseldorf",
+        "address": "Moorenstraße 5, 40225 Düsseldorf",
+        "street": "Moorenstraße",
+        "houseNumber": "5",
+        "zipCode": "40225",
+        "city": "Düsseldorf",
+        "latitude": 51.197122,
+        "longitude": 6.789379
+    }
+]

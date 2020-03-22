@@ -1,16 +1,24 @@
 import React from 'react';
-import './App.css';
-import {get} from "./helpers/http"
-import CoronaForm from "./components/CoronaForm"
+import { Switch, Route, BrowserRouter } from 'react-router-dom';
+import { ThemeProvider } from '@material-ui/core/styles';
+import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
+import Portal from './components/Portal';
+import Status from './components/Status';
+
+let theme = createMuiTheme();
+theme = responsiveFontSizes(theme);
+
 function App() {
-  const successCallback = (response: any) => {
-    console.warn("Got response: " + JSON.stringify(response))
-  };
-  get({path: "https://thevirustracker.com/free-api?global=stats", successCallback: successCallback, errorCallback: () => {}});
   return (
-    <div className="App">
-      <CoronaForm onSubmitted={ (formData) => console.log(formData)} />
-    </div>
+    <ThemeProvider theme={theme}>
+    <BrowserRouter>
+        <Switch>
+          <Route path="/status/:hospitalId" component={Status} />
+
+          <Route component={Portal} />
+        </Switch>
+  </BrowserRouter>
+  </ThemeProvider>
   );
 }
 

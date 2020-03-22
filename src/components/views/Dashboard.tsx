@@ -50,22 +50,6 @@ const useStyles = makeStyles(theme => ({
       }
 }));
 
-const sampleStatistics = [{label: "Chirurgische Masken", nrOk: 50, nrLow: 150, nrCritical: 50, nrOutOfStock: 250,
-    stakeholderStatuses: [
-        {"name": "UNI Klinikum Düsseldorf", contact: " 0211 8100", stockStatus: StockStatus.CRITICAL},
-        {"name": "Evangelisches Krankenhaus Düsseldorf", contact: " 0211 9190", stockStatus: StockStatus.OK},
-        {"name": "Augusta-Krankenhaus", contact: " 0211 8100", stockStatus: StockStatus.CRITICAL},
-        {"name": "Florence-Nightingale-Krankenhaus", contact: " 0211 8100", stockStatus: StockStatus.OUT_OF_STOCK},
-        {"name": "St. Vinzenz-Krankenhaus", contact: " 0211 8100", stockStatus: StockStatus.OUT_OF_STOCK}]},
-    {label: "Disinfectant", nrOk: 150, nrLow: 27, nrCritical: 250, nrOutOfStock: 250,
-        stakeholderStatuses: [
-            {"name": "UNI Klinikum Düsseldorf", contact: " 0211 8100", stockStatus: StockStatus.CRITICAL},
-            {"name": "Evangelisches Krankenhaus Düsseldorf", contact: " 0211 9190", stockStatus: StockStatus.OK},
-            {"name": "Augusta-Krankenhaus", contact: " 0211 8100", stockStatus: StockStatus.CRITICAL},
-            {"name": "Florence-Nightingale-Krankenhaus", contact: " 0211 8100", stockStatus: StockStatus.OUT_OF_STOCK},
-            {"name": "St. Vinzenz-Krankenhaus", contact: " 0211 8100", stockStatus: StockStatus.OUT_OF_STOCK}
-        ]}];
-
 const sampleResourceTotals = [
     {label: "COVID-19 Patienten", iconSrc: people, numberTotal: 234},
     {label: "Intensiv Patienten", iconSrc: ICU, numberTotal: 13},
@@ -89,8 +73,8 @@ const Dashboard = () => {
     }, []);
 
     return resourceStatistics ? (
-        <Grid container spacing={3} >
-            <Typography className={classes.title}>{"Krankenhausübersicht"}</Typography>
+        <Grid container spacing={3}>
+            <Typography className={classes.title}>Krankenhäuser Düsseldorf</Typography>
             <Grid item xs={12}>
                 <div className={classes.paper}>
                     <div style={{marginLeft: "16px"}}>

@@ -25,8 +25,8 @@ const get = ({path, successCallback, errorCallback, auth} : GetArgs) => {
     axios.get(path, getRequestConfig(auth)).then(successCallback).catch(getErrorCallback(errorCallback));
 };
 
-const post = ({path, payload, successCallback, errorCallback} : PostArgs) => {
-    axios.post(path, payload).then(successCallback).catch(getErrorCallback(errorCallback));
+const post = ({path, payload, successCallback, errorCallback, auth} : PostArgs) => {
+    axios.post(path, payload, getRequestConfig(auth)).then(successCallback).catch(getErrorCallback(errorCallback));
 };
 
 const getErrorCallback = (callback? : (error: any) => void) => {

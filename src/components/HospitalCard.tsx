@@ -34,7 +34,7 @@ const HospitalCard = ({ hospital, history }: HospitalCardProps & RouteComponentP
     <Card className={classes.root}>
       <CardContent>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
-          Hospital
+          Krankenhaus
         </Typography>
         <Typography variant="h5" component="h2">
           {hospital.name}
@@ -42,6 +42,9 @@ const HospitalCard = ({ hospital, history }: HospitalCardProps & RouteComponentP
         <Typography color="textSecondary">
           {hospital.street} {hospital.houseNumber},<br/>
           {hospital.zipCode} {hospital.city}
+        </Typography>
+        <Typography color="textPrimary">
+          {hospital.phone}
         </Typography>
       </CardContent>
       <CardActions className={classes.pos} >

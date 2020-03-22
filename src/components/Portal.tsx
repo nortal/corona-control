@@ -16,12 +16,10 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import DashboardIcon from '@material-ui/icons/Dashboard';
-import LocalHospital from '@material-ui/icons/LocalHospital';
-import Search from '@material-ui/icons/Search';
+import ContactPhone from '@material-ui/icons/ContactPhone';
 import MenuListItem from './MenuListItem';
 import Hospitals from './views/Hospitals';
 import Dashboard from './views/Dashboard';
-import ElasticSandbox from './views/ElasticSandbox';
 
 const drawerWidth = 240;
 
@@ -114,7 +112,6 @@ export default function Portal() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-  // const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
   return (
     <div className={classes.root}>
@@ -153,30 +150,22 @@ export default function Portal() {
             <ListItemIcon>
               <DashboardIcon />
             </ListItemIcon>
-            <ListItemText primary="Dashboard" />
+            <ListItemText primary="Krankenhäuser" />
           </MenuListItem>
-          <MenuListItem link="/hospitals">
+
+          <MenuListItem link="/contacts">
             <ListItemIcon>
-              <LocalHospital />
+              <ContactPhone />
             </ListItemIcon>
-            <ListItemText primary="Hospitals" />
-          </MenuListItem>
-          <MenuListItem link="/elastic">
-            <ListItemIcon>
-              <Search />
-            </ListItemIcon>
-            <ListItemText primary="Elastic" />
+            <ListItemText primary="Kontakte" />
           </MenuListItem>
         </List>
-        <Divider />
-        <List></List>
       </Drawer>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
         <Switch>
-          <Route path="/hospitals" component={Hospitals} />
-          <Route path="/elastic" component={ElasticSandbox} />
+          <Route path="/contacts" component={Hospitals} />
           <Route component={Dashboard} />
         </Switch>
         </Container>

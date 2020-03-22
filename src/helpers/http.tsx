@@ -21,20 +21,20 @@ interface AuthOptions {
     password: string;
 }
 
-const get = ({path, successCallback, errorCallback, auth} : GetArgs) => {
-    axios.get(path, getRequestConfig(auth)).then(successCallback).catch(getErrorCallback(errorCallback));
+const get = ({ path, successCallback, errorCallback, auth }: GetArgs) => {
+    axios.get(path, {...getRequestConfig(auth), data: {}}).then(successCallback).catch(getErrorCallback(errorCallback));
 };
 
-const post = ({path, payload, successCallback, errorCallback} : PostArgs) => {
-    axios.post(path, payload).then(successCallback).catch(getErrorCallback(errorCallback));
+const post = ({ path, payload, successCallback, errorCallback, auth }: PostArgs) => {
+    axios.post(path, payload, getRequestConfig(auth)).then(successCallback).catch(getErrorCallback(errorCallback));
 };
 
-const getErrorCallback = (callback? : (error: any) => void) => {
-    return callback ? callback : () => {};
+const getErrorCallback = (callback?: (error: any) => void) => {
+    return callback ? callback : () => { };
 };
 
 const getRequestConfig = (auth?: AuthOptions) => {
-    return auth ? {auth: {username: auth.username, password: auth.password}} : {};
+    return auth ? { auth: { username: auth.username, password: auth.password }, headers: { 'Content-Type': 'application/json', 'X-Requested-With': 'Corona-Control' } } : { headers: { 'Content-Type': 'application/json', 'X-Requested-With': 'Corona-Control' } };
 };
 
-export {get, post};
+export { get, post };

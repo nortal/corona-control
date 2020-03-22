@@ -136,22 +136,22 @@ const CoronaForm = (props: CoronaFormProps) => {
         }}>
                 <FormControl style={{ width: "100%" }}>
                     <NumberField
-                        label={"Number of corona patients"}
+                        label={"Corona-Patienten"}
                         value={values.nrOfVirusPatients}
                         onChange={(event => updateNumberField(event, "nrOfVirusPatients"))}
                     />
                     <NumberField
-                        label={"Number of corona patients in ICU"}
+                        label={"Corona-Patienten in ICU"}
                         value={values.nrOfVirusPatientsInICU}
                         onChange={(event => updateNumberField(event, "nrOfVirusPatientsInICU"))}
                     />
                     <NumberField
-                        label={"Number of corona patients in ICU lvl 3"}
+                        label={"Corona-Patienten in ICU level 3"}
                         value={values.nrOfVirusPatientsInICULvl3}
                         onChange={(event => updateNumberField(event, "nrOfVirusPatientsInICULvl3"))}
                     />
                     <NumberField
-                        label={"Number of free beds"}
+                        label={"Anzahl freier Betten"}
                         value={values.nrOfFreeBeds}
                         onChange={(event => updateNumberField(event, "nrOfFreeBeds"))}
                     />
@@ -161,49 +161,49 @@ const CoronaForm = (props: CoronaFormProps) => {
                         onChange={(event => updateNumberField(event, "nrOfNursesNeeded"))}
                     />
                     <NumberField
-                        label={"Number of free physicians needed"}
+                        label={"Anzahl benötigter Ärzte"}
                         value={values.nrOfPhysiciansNeeded}
                         onChange={(event => updateNumberField(event, "nrOfPhysiciansNeeded"))}
                     />
                     <NumberField
-                        label={"Number of free ventilators"}
+                        label={"Anzahl freier Beatmungsgeräte"}
                         value={values.nrOfFreeVentilators}
                         onChange={(event => updateNumberField(event, "nrOfFreeVentilators"))}
                     />
                 </FormControl>
                 <div style={{ margin: "20px 0px" }}>
                     <StatusField
-                        label={"Status of masks in stock"}
+                        label={"Status Schutzmasken"}
                         value={values.masksStockStatus}
                         possibleValues={possibleValues}
                         onChange={(event => updateStatusField(event, "masksStockStatus"))}
                     />
                     <StatusField
-                        label={"Status of desinfectant"}
+                        label={"Status Desinfektionsmittel"}
                         value={values.disinfectantStockStatus}
                         possibleValues={possibleValues}
                         onChange={(event => updateStatusField(event, "disinfectantStockStatus"))}
                     />
                     <StatusField
-                        label={"Status of protective gear"}
+                        label={"Status Schutzkleidung"}
                         value={values.protectiveGearStockStatus}
                         possibleValues={possibleValues}
                         onChange={(event => updateStatusField(event, "protectiveGearStockStatus"))}
                     />
                     <StatusField
-                        label={"Status of antibiotics"}
+                        label={"Status Antibiotika"}
                         value={values.antibioticsStockStatus}
                         possibleValues={possibleValues}
                         onChange={(event => updateStatusField(event, "antibioticsStockStatus"))}
                     />
                     <StatusField
-                        label={"Status of anti-pneumonia drugs"}
+                        label={"Status Pneumonia-Medikamente"}
                         value={values.antiPneumoniaDrugStockStatus}
                         possibleValues={possibleValues}
                         onChange={(event => updateStatusField(event, "antiPneumoniaDrugStockStatus"))}
                     />
                 </div>
-            <Button variant={"contained"} onClick={() => onSubmitted(values)}>Send the data!</Button>
+            <Button variant={"contained"} onClick={() => onSubmitted(values)}>Daten senden!</Button>
         </DialogContent>
     )
 };

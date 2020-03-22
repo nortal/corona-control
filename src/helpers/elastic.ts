@@ -13,7 +13,7 @@ export const getSampleData = ({ successCallback } : HttpCallbacks) => {
     };
     return get(
         {
-            path: ES_URL + (ES_INDEX ? "/" + ES_INDEX : "") + "/_search",
+            path: ES_URL + (ES_INDEX ? ES_INDEX : "") + "/_search",
             auth: { username: ES_USERNAME, password: ES_PASSWORD },
             successCallback: successCallback, errorCallback: errorCallback
         }

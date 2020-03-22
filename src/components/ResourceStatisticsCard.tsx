@@ -10,7 +10,7 @@ import StakeHolderStatusBlock from "./StakeHolderStatusBlock";
 
 const useStyles = makeStyles({
   root: {
-    width: 350,
+    width: 363,
     margin: 16,
   },
   title: {

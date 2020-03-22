@@ -28,6 +28,11 @@ const subtitle = {
     fontSize: 13
 };
 
+const subtitleBlueLink = {
+    fontSize: 13,
+    color: "#4d4dff"
+};
+
 const backGroundColorMap = new Map<StockStatus, string>([
     [StockStatus.OK, 'green'],
     [StockStatus.LOW, 'orange'],
@@ -52,7 +57,7 @@ const StakeHolderStatusBlock = ({name, contact, stockStatus} : StakeHolderStatus
               <Typography style={subtitle}>
                   {name}
               </Typography>
-              <Typography style={subtitle}>
+              <Typography style={subtitleBlueLink}>
                   {contact}
               </Typography>
           </div>

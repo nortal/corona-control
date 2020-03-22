@@ -1,7 +1,16 @@
 import React, {useState} from 'react';
-import {DialogContent, FormControl, FormControlLabel, FormLabel, Radio, RadioGroup, TextField} from '@material-ui/core'
+import {
+    DialogContent,
+    FormControl,
+    FormLabel,
+    Grid,
+    Radio,
+    TextField,
+} from '@material-ui/core'
 import ResourceStatusPayload, {StockStatus} from "../api/model/ResourceStatusPayload";
 import Button from "@material-ui/core/Button";
+import {green, red, yellow, common} from "@material-ui/core/colors";
+import {makeStyles} from "@material-ui/core/styles";
 
 
 interface CoronaFormProps {
@@ -28,9 +37,19 @@ const NumberField = (props: NumberFieldProps) => {
         onChange
     } = props;
     return (
-        <TextField type={"number"} label={label} value={value} onChange={onChange}/>
+        <TextField fullWidth={true} type={"number"} label={label} value={value === 0 ? null : value} onChange={onChange}/>
     );
 };
+
+const useStyle = (color: string, checkedColor: string) => makeStyles({
+    root: {
+        color: color,
+        "&$checked": {
+            color: checkedColor
+        },
+    },
+    checked: {},
+});
 
 const StatusField = (props: StatusFieldProps) => {
     const {
@@ -39,13 +58,30 @@ const StatusField = (props: StatusFieldProps) => {
         possibleValues,
         onChange,
     } = props;
+    const styles = [
+        useStyle(green[400], green[600])(),
+        useStyle(yellow[400], yellow[600])(),
+        useStyle(red[400], red[600])(),
+        useStyle(common.black, common.black)(),
+    ];
     return (
-        <>
-            <FormLabel>{ label }</FormLabel>
-            <RadioGroup value={value} onChange={onChange}>
-                {possibleValues && possibleValues.map(item => (<FormControlLabel control={<Radio/>} value={item} label={item}/>)) }
-            </RadioGroup>
-        </>
+        <Grid container spacing={2}>
+            <Grid item xs={6} style={{ textAlign: "right" }}><FormLabel>{ label }:</FormLabel></Grid>
+            {possibleValues && possibleValues.map((item, index) => (
+                <Grid item xs={1}>
+                    <Radio
+                        classes={{
+                            root: styles[index].root,
+                            checked: styles[index].checked,
+                        }}
+                        checked={value === item}
+                        onChange={onChange}
+                        value={item}
+                        inputProps={{ "aria-label": label }}
+                    />
+                </Grid>
+        ))}
+        </Grid>
     )
 };
 
@@ -94,9 +130,11 @@ const CoronaForm = (props: CoronaFormProps) => {
     };
 
     return (
-        <DialogContent>
-            <form>
-                <FormControl>
+        <DialogContent style={{
+            width: "500px",
+            margin: "0 auto"
+        }}>
+                <FormControl style={{ width: "100%" }}>
                     <NumberField
                         label={"Number of corona patients"}
                         value={values.nrOfVirusPatients}
@@ -132,6 +170,8 @@ const CoronaForm = (props: CoronaFormProps) => {
                         value={values.nrOfFreeVentilators}
                         onChange={(event => updateNumberField(event, "nrOfFreeVentilators"))}
                     />
+                </FormControl>
+                <div style={{ margin: "20px 0px" }}>
                     <StatusField
                         label={"Status of masks in stock"}
                         value={values.masksStockStatus}
@@ -162,8 +202,7 @@ const CoronaForm = (props: CoronaFormProps) => {
                         possibleValues={possibleValues}
                         onChange={(event => updateStatusField(event, "antiPneumoniaDrugStockStatus"))}
                     />
-                </FormControl>
-            </form>
+                </div>
             <Button variant={"contained"} onClick={() => onSubmitted(values)}>Send the data!</Button>
         </DialogContent>
     )

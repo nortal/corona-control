@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
-import { Grid, Paper } from '@material-ui/core';
+import {Grid, Paper, Typography} from '@material-ui/core';
 import ResourceStatisticsCard, {ResourceStatisticsCardProps} from "../ResourceStatisticsCard";
 import {StockStatus} from "../../api/model/ResourceStatusPayload";
 import ResourceTotalCard, {ResourceTotalCardProps} from "../ResourceTotalCard";
@@ -20,11 +20,24 @@ const useStyles = makeStyles(theme => ({
         backgroundColor: "#E7E6E6",
         display: 'flex',
         overflow: 'auto',
+        flexDirection: 'column',
+    },
+    flexHorizontal: {
+        display: 'flex',
+        overflow: 'auto',
         flexDirection: 'row',
     },
     fixedHeight: {
         height: 240,
     },
+    title: {
+        fontFamily: "Nunito",
+        fontStyle: "normal",
+        fontWeight: "bold" as 'bold',
+        fontSize: "44px",
+        lineHeight: "78px",
+        color: "#1A1A1A"
+    }
 }));
 
 const sampleStatistics = [{label: "Chirurgische Masken", nrOk: 50, nrLow: 150, nrCritical: 50, nrOutOfStock: 250,
@@ -61,14 +74,17 @@ const Dashboard = () => {
 
     return (
         <Grid container spacing={3}>
-            <Grid item xs={12}>
-                <Paper className={fixedHeightPaper}>
-                    {resourceTotals.map((resourceTotal) => <ResourceTotalCard {...resourceTotal}/>)}
-                </Paper>
-            </Grid>
+            <Typography className={classes.title}>{"Krankenhausübersicht"}</Typography>
             <Grid item xs={12}>
                 <Paper className={classes.paper}>
-                    {resourceStatistics.map((resourceStat) => <ResourceStatisticsCard {...resourceStat}/>)}
+                    <div style={{marginLeft: "16px"}}>
+                        <div className={classes.flexHorizontal} >
+                            {resourceTotals.map((resourceTotal) => <ResourceTotalCard {...resourceTotal}/>)}
+                        </div>
+                        <div className={classes.flexHorizontal} >
+                        {resourceStatistics.map((resourceStat) => <ResourceStatisticsCard {...resourceStat}/>)}
+                        </div>
+                    </div>
                 </Paper>
             </Grid>
         </Grid>

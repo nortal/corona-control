@@ -203,7 +203,7 @@ const CoronaForm = (props: CoronaFormProps) => {
                         onChange={(event => updateStatusField(event, "antiPneumoniaDrugStockStatus"))}
                     />
                 </div>
-            <Button variant={"contained"} onClick={() => onSubmitted(values)}>Send the data!</Button>
+            <Button variant={"contained"} onClick={() => onSubmitted(values)}>Daten senden!</Button>
         </DialogContent>
     )
 };

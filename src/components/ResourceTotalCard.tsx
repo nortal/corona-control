@@ -12,7 +12,7 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles({
     root: {
         height: 145,
-        width: 213,
+        width: 363,
         marginRight: 14,
         marginBottom: 36
     },

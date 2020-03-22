@@ -12,7 +12,7 @@ import ResourceStatistics from "../api/model/Resources";
 const useStyles = makeStyles({
   root: {
     width: 363,
-    marginRight: 26
+    marginRight: 14
   },
   title: {
     fontSize: 20,

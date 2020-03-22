@@ -3,7 +3,7 @@ import {
     DialogContent, DialogTitle,
     FormControl,
     FormLabel,
-    Grid,
+    Grid, Paper,
     Radio,
     TextField, Typography,
 } from '@material-ui/core'
@@ -138,6 +138,7 @@ const CoronaForm = (props: CoronaFormProps) => {
                 <Typography variant="h4" component="h2" gutterBottom>
                     Current status
                 </Typography>
+            <Paper variant={"outlined"} style={{ padding: "0 10px" }}>
                 <FormControl style={{ width: "100%" }}>
                     <NumberField
                         label={"COVID-19 Patienten"}
@@ -207,6 +208,7 @@ const CoronaForm = (props: CoronaFormProps) => {
                         onChange={(event => updateStatusField(event, "antiPneumoniaDrugStockStatus"))}
                     />
                 </div>
+            </Paper>
             { visible && (<Button color={"primary"} variant={"contained"} onClick={() => onSubmitted(values)}>Daten senden!</Button>) }
         </DialogContent>
     )

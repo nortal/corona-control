@@ -19,7 +19,7 @@ const ElasticSandbox = () => {
             {hits.map(hit => {
                 return (
                     <ListItem key={hit['_id']}>
-                        <ListItemText primary={hit['_source']['Name']} />
+                        <ListItemText primary={hit['_source']['name']} />
                     </ListItem>
                 );
             })}

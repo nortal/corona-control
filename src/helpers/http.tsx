@@ -34,7 +34,7 @@ const getErrorCallback = (callback? : (error: any) => void) => {
 };
 
 const getRequestConfig = (auth?: AuthOptions) => {
-    return auth ? {auth: {username: auth.username, password: auth.password}, headers: {'Content-Type': 'application/json'}} : {headers: {'Content-Type': 'application/json'}};
+    return auth ? {auth: {username: auth.username, password: auth.password}, headers: {'Content-Type': 'application/json', 'X-Requested-With': 'Corona-Control'}} : {headers: {'Content-Type': 'application/json', 'X-Requested-With': 'Corona-Control'}};
 };
 
 export {get, post};

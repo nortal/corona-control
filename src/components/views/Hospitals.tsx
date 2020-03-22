@@ -2,7 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import HospitalCard from '../HospitalCard';
 import { Box } from '@material-ui/core';
-import getAllHospitals from '../../helpers/data';
+import {getAllHospitals} from "../../helpers/data";
 
 const useStyles = makeStyles({
     root: {

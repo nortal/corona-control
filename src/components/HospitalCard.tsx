@@ -7,8 +7,6 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Hospital from '../api/model/Hospital';
-import RatioLine from "./RatioLine";
-import {ResourceStatisticsCardProps} from "./ResourceStatisticsCard";
 
 const useStyles = makeStyles({
   root: {
@@ -41,7 +39,6 @@ const HospitalCard = ({ hospital, history }: HospitalCardProps & RouteComponentP
         <Typography variant="h5" component="h2">
           {hospital.name}
         </Typography>
-        <RatioLine nrOk={100} nrLow={150} nrCritical={50} nrOutOfStock={300}/>
         <Typography color="textSecondary">
           {hospital.street} {hospital.houseNumber},<br/>
           {hospital.zipCode} {hospital.city}

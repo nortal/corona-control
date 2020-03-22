@@ -27,7 +27,7 @@ type CreateOrUpdatePayload = ResourceStatusPayload | Hospital;
 export const createOrUpdateDoc = (id: string, doc: CreateOrUpdatePayload, {successCallback, errorCallback}: HttpCallbacks) => {
     return post(
         {
-            path: ES_URL + (ES_INDEX ? "/" + ES_INDEX : "") + "/_doc/" + id,
+            path: ES_URL + (ES_INDEX ? ES_INDEX : "") + "/_doc/" + id,
             payload: doc,
             auth: { username: ES_USERNAME, password: ES_PASSWORD },
             successCallback, errorCallback

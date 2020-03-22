@@ -67,7 +67,7 @@ const StatusField = (props: StatusFieldProps) => {
     ];
     return (
         <Grid container spacing={2}>
-            <Grid item xs={6} style={{ textAlign: "right" }}><FormLabel>{ label }:</FormLabel></Grid>
+            <Grid item xs={6} style={{ textAlign: "right", marginTop: "10px"}}><FormLabel>{ label }:</FormLabel></Grid>
             {possibleValues && possibleValues.map((item, index) => (
                 <Grid item xs={1}>
                     <Radio

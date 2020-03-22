@@ -22,6 +22,17 @@
         "longitude": 6.773039
     },
     {
+        "id": "florence-nightingale-krankenhaus",
+        "name": "Florence-Nightingale-Krankenhaus",
+        "address": "Kreuzbergstraße 79, 40489 Düsseldorf",
+        "street": "Kreuzbergstraße",
+        "houseNumber": "79",
+        "zipCode": "40489",
+        "city": "Düsseldorf",
+        "latitude": 51.30041569999999,
+        "longitude": 6.7494327
+    },
+    {
         "id": "st-vinzenz-krankenhaus",
         "name": "St. Vinzenz-Krankenhaus",
         "address": "Schloßstr. 85, 40477 Düsseldorf",

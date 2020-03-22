@@ -138,7 +138,7 @@ const CoronaForm = (props: CoronaFormProps) => {
                 <Typography variant="h4" component="h2" gutterBottom>
                     Current status
                 </Typography>
-            <Paper variant={"outlined"} style={{ padding: "0 10px" }}>
+            <Paper variant={"outlined"} style={{ padding: "0 10px", marginBottom: 15 }}>
                 <FormControl style={{ width: "100%" }}>
                     <NumberField
                         label={"COVID-19 Patienten"}

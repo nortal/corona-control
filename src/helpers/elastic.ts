@@ -9,13 +9,15 @@ const ES_INDEX = process.env.REACT_APP_ES_INDEX || "";
 const ES_USERNAME = process.env.REACT_APP_ES_USERNAME || "";
 const ES_PASSWORD = process.env.REACT_APP_ES_PASSWORD || "";
 
+const MAX_RESULTS = 100;
+
 export const getSampleData = ({ successCallback } : HttpCallbacks) => {
     const errorCallback = (error: any) => {
         console.warn("Error: ", error)
     };
     return get(
         {
-            path: ES_URL + (ES_INDEX ? ES_INDEX : "") + "/_search",
+            path: ES_URL + (ES_INDEX ? ES_INDEX : "") + "/_search?size=" + MAX_RESULTS,
             auth: { username: ES_USERNAME, password: ES_PASSWORD },
             successCallback, errorCallback
         }

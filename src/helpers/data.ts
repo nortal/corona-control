@@ -13,7 +13,7 @@ const toResourceStatistics = (hits: any): ResourceStatistics[] => {
     stats.push(toResourceStatistic("disinfectantStockStatus", "Desinfektionsmittel", hits));
     stats.push(toResourceStatistic("protectiveGearStockStatus", "Schutzkleidung", hits));
     stats.push(toResourceStatistic("antibioticsStockStatus", "Antibiotika", hits));
-    stats.push(toResourceStatistic("antiPneumoniaDrugStockStatus", "Pneumonie-Medikament", hits));
+    stats.push(toResourceStatistic("antiPneumoniaDrugStockStatus", "Pneumonie-Med.", hits));
 
     return stats;
 }

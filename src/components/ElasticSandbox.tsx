@@ -15,6 +15,7 @@ const ElasticSandbox = () => {
 
     return hits && hits !== null  ? (
         <Box>
+            <h1>Index: {process.env.REACT_APP_ES_INDEX}</h1>
             <List>
             {hits.map(hit => {
                 return (

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import CoronaForm from './CoronaForm';
-import {AppBar, Toolbar, Typography} from '@material-ui/core';
+import CoronaForm from './views/CoronaForm';
+import { AppBar, Toolbar, Typography } from '@material-ui/core';
 import DirectionsRun from '@material-ui/icons/DirectionsRun';
 import ResourceStatusPayload from "../api/model/ResourceStatusPayload";
 import {createOrUpdateDoc} from "../helpers/elastic";

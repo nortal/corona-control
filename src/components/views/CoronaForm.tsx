@@ -7,7 +7,7 @@ import {
     Radio,
     TextField,
 } from '@material-ui/core'
-import ResourceStatusPayload, {StockStatus} from "../api/model/ResourceStatusPayload";
+import ResourceStatusPayload, {StockStatus} from "../../api/model/ResourceStatusPayload";
 import Button from "@material-ui/core/Button";
 import {green, red, yellow, common} from "@material-ui/core/colors";
 import {makeStyles} from "@material-ui/core/styles";
@@ -137,27 +137,27 @@ const CoronaForm = (props: CoronaFormProps) => {
         }}>
                 <FormControl style={{ width: "100%" }}>
                     <NumberField
-                        label={"Corona-Patienten"}
+                        label={"COVID-19 Patienten"}
                         value={values.nrOfVirusPatients}
                         onChange={(event => updateNumberField(event, "nrOfVirusPatients"))}
                     />
                     <NumberField
-                        label={"Corona-Patienten in ICU"}
+                        label={"COVID-19 Patienten in ICU"}
                         value={values.nrOfVirusPatientsInICU}
                         onChange={(event => updateNumberField(event, "nrOfVirusPatientsInICU"))}
                     />
                     <NumberField
-                        label={"Corona-Patienten in ICU level 3"}
+                        label={"COVID-19 Patienten in ICU level 3"}
                         value={values.nrOfVirusPatientsInICULvl3}
                         onChange={(event => updateNumberField(event, "nrOfVirusPatientsInICULvl3"))}
                     />
                     <NumberField
-                        label={"Anzahl freier Betten"}
+                        label={"Freie Betten"}
                         value={values.nrOfFreeBeds}
                         onChange={(event => updateNumberField(event, "nrOfFreeBeds"))}
                     />
                     <NumberField
-                        label={"Number of nurses needed"}
+                        label={"Anzahl benötigter Krankenpfleger"}
                         value={values.nrOfNursesNeeded}
                         onChange={(event => updateNumberField(event, "nrOfNursesNeeded"))}
                     />
@@ -167,20 +167,20 @@ const CoronaForm = (props: CoronaFormProps) => {
                         onChange={(event => updateNumberField(event, "nrOfPhysiciansNeeded"))}
                     />
                     <NumberField
-                        label={"Anzahl freier Beatmungsgeräte"}
+                        label={"Verfügbare Respiratoren"}
                         value={values.nrOfFreeVentilators}
                         onChange={(event => updateNumberField(event, "nrOfFreeVentilators"))}
                     />
                 </FormControl>
                 <div style={{ margin: "20px 0px" }}>
                     <StatusField
-                        label={"Status Schutzmasken"}
+                        label={"Status Mundschutz"}
                         value={values.masksStockStatus}
                         possibleValues={possibleValues}
                         onChange={(event => updateStatusField(event, "masksStockStatus"))}
                     />
                     <StatusField
-                        label={"Status Desinfektionsmittel"}
+                        label={"Status Sterilium"}
                         value={values.disinfectantStockStatus}
                         possibleValues={possibleValues}
                         onChange={(event => updateStatusField(event, "disinfectantStockStatus"))}
@@ -198,7 +198,7 @@ const CoronaForm = (props: CoronaFormProps) => {
                         onChange={(event => updateStatusField(event, "antibioticsStockStatus"))}
                     />
                     <StatusField
-                        label={"Status Pneumonia-Medikamente"}
+                        label={"Status Pneumonie Medikamente"}
                         value={values.antiPneumoniaDrugStockStatus}
                         possibleValues={possibleValues}
                         onChange={(event => updateStatusField(event, "antiPneumoniaDrugStockStatus"))}

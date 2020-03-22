@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Box, List, ListItem, ListItemText } from '@material-ui/core';
-import { getSampleData } from '../helpers/elastic';
+import { getSampleData } from '../../helpers/elastic';
 
 const ElasticSandbox = () => {
     const [hits, setHits] = useState([]);
@@ -19,7 +19,7 @@ const ElasticSandbox = () => {
             {hits.map(hit => {
                 return (
                     <ListItem key={hit['_id']}>
-                        <ListItemText primary={hit['_source']['Name']} />
+                        <ListItemText primary={hit['_source']['name']} />
                     </ListItem>
                 );
             })}

@@ -156,7 +156,7 @@ const CoronaForm = (props: CoronaFormProps) => {
                         onChange={(event => updateNumberField(event, "nrOfFreeBeds"))}
                     />
                     <NumberField
-                        label={"Number of nurses needed"}
+                        label={"Anzahl benötigter Krankenpfleger"}
                         value={values.nrOfNursesNeeded}
                         onChange={(event => updateNumberField(event, "nrOfNursesNeeded"))}
                     />

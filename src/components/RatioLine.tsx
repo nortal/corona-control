@@ -2,7 +2,7 @@ import React from 'react';
 
 const containerStyle = {
   display: "table",
-  width: "200px",
+  width: "100%",
     height: "5px",
     marginTop: "15px",
     marginBottom: "15px"

@@ -1,19 +1,20 @@
 import React, {useState} from 'react';
 import {
-    DialogContent,
+    DialogContent, DialogTitle,
     FormControl,
     FormLabel,
-    Grid,
+    Grid, Paper,
     Radio,
-    TextField,
+    TextField, Typography,
 } from '@material-ui/core'
 import ResourceStatusPayload, {StockStatus} from "../../api/model/ResourceStatusPayload";
 import Button from "@material-ui/core/Button";
-import {green, red, yellow, common} from "@material-ui/core/colors";
+import {common} from "@material-ui/core/colors";
 import {makeStyles} from "@material-ui/core/styles";
 
 
 interface CoronaFormProps {
+    visible?: boolean,
     onSubmitted: (values: ResourceStatusPayload) => void,
 }
 
@@ -59,14 +60,14 @@ const StatusField = (props: StatusFieldProps) => {
         onChange,
     } = props;
     const styles = [
-        useStyle(green[400], green[600])(),
-        useStyle(yellow[400], yellow[600])(),
-        useStyle(red[400], red[600])(),
+        useStyle("#81c784", "#4caf50")(),
+        useStyle("#ffb74d", "#ff9800")(),
+        useStyle("#e57373", "#f44336")(),
         useStyle(common.black, common.black)(),
     ];
     return (
         <Grid container spacing={2}>
-            <Grid item xs={6} style={{ textAlign: "right" }}><FormLabel>{ label }:</FormLabel></Grid>
+            <Grid item xs={6} style={{ textAlign: "right", marginTop: "10px"}}><FormLabel>{ label }:</FormLabel></Grid>
             {possibleValues && possibleValues.map((item, index) => (
                 <Grid item xs={1}>
                     <Radio
@@ -101,7 +102,7 @@ const initialState: ResourceStatusPayload = {
 };
 
 const CoronaForm = (props: CoronaFormProps) => {
-    const { onSubmitted } = props;
+    const { onSubmitted, visible } = props;
     const [values, setValues] = useState<ResourceStatusPayload>(initialState);
 
     const possibleValues = Object.keys(StockStatus);
@@ -134,6 +135,10 @@ const CoronaForm = (props: CoronaFormProps) => {
             width: "500px",
             margin: "0 auto"
         }}>
+                <Typography variant="h4" component="h2" gutterBottom>
+                    Current status
+                </Typography>
+            <Paper variant={"outlined"} style={{ padding: "0 10px" }}>
                 <FormControl style={{ width: "100%" }}>
                     <NumberField
                         label={"COVID-19 Patienten"}
@@ -203,7 +208,8 @@ const CoronaForm = (props: CoronaFormProps) => {
                         onChange={(event => updateStatusField(event, "antiPneumoniaDrugStockStatus"))}
                     />
                 </div>
-            <Button variant={"contained"} onClick={() => onSubmitted(values)}>Daten senden!</Button>
+            </Paper>
+            { visible && (<Button color={"primary"} variant={"contained"} onClick={() => onSubmitted(values)}>Daten senden!</Button>) }
         </DialogContent>
     )
 };

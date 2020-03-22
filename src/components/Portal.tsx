@@ -11,16 +11,17 @@ import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import LocalHospital from '@material-ui/icons/LocalHospital';
+import Search from '@material-ui/icons/Search';
 import MenuListItem from './MenuListItem';
 import Hospitals from './Hospitals';
+import Dashboard from './Dashboard';
+import ElasticSandbox from './ElasticSandbox';
 
 const drawerWidth = 240;
 
@@ -159,6 +160,12 @@ export default function Portal() {
             </ListItemIcon>
             <ListItemText primary="Hospitals" />
           </MenuListItem>
+          <MenuListItem link="/elastic">
+            <ListItemIcon>
+              <Search />
+            </ListItemIcon>
+            <ListItemText primary="Elastic" />
+          </MenuListItem>
         </List>
         <Divider />
         <List></List>
@@ -168,24 +175,9 @@ export default function Portal() {
         <Container maxWidth="lg" className={classes.container}>
         <Switch>
           <Route path="/hospitals" component={Hospitals} />
+          <Route path="/elastic" component={ElasticSandbox} />
+          <Route component={Dashboard} />
         </Switch>
-          {/* <Grid container spacing={3}>
-            <Grid item xs={12} md={8} lg={9}>
-              <Paper className={fixedHeightPaper}>
-
-              </Paper>
-            </Grid>
-            <Grid item xs={12} md={4} lg={3}>
-              <Paper className={fixedHeightPaper}>
-
-              </Paper>
-            </Grid>
-            <Grid item xs={12}>
-              <Paper className={classes.paper}>
-
-              </Paper>
-            </Grid>
-          </Grid> */}
         </Container>
       </main>
     </div>

@@ -1,24 +1,40 @@
 const axios = require('axios');
 
-interface GetArgs {
-    path: string;
+export interface HttpCallbacks {
     successCallback: (response: any) => void;
-    errorCallback: (error: any) => void;
+    errorCallback?: (error: any) => void;
 }
 
-interface PostArgs {
+interface GetArgs extends HttpCallbacks {
     path: string;
-    successCallback: (response: any) => void;
-    errorCallback: (error: any) => void;
+    auth?: AuthOptions;
+}
+
+interface PostArgs extends HttpCallbacks {
+    path: string;
     payload: any;
+    auth?: AuthOptions;
 }
 
-const get = ({path, successCallback, errorCallback} : GetArgs) => {
-    axios.get(path).then(successCallback).catch(errorCallback);
+interface AuthOptions {
+    username: string;
+    password: string;
+}
+
+const get = ({path, successCallback, errorCallback, auth} : GetArgs) => {
+    axios.get(path, getRequestConfig(auth)).then(successCallback).catch(getErrorCallback(errorCallback));
 };
 
 const post = ({path, payload, successCallback, errorCallback} : PostArgs) => {
-    axios.post(path, payload).then(successCallback).catch(errorCallback);
+    axios.post(path, payload).then(successCallback).catch(getErrorCallback(errorCallback));
+};
+
+const getErrorCallback = (callback? : (error: any) => void) => {
+    return callback ? callback : () => {};
+};
+
+const getRequestConfig = (auth?: AuthOptions) => {
+    return auth ? {auth: {username: auth.username, password: auth.password}} : {};
 };
 
 export {get, post};

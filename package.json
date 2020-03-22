@@ -24,7 +24,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "proxy": "lcp --proxyUrl https://0a7fdf29e64349b183cfb01fdd08cbe3.westeurope.azure.elastic-cloud.com:9243/"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -40,5 +41,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "local-cors-proxy": "^1.1.0"
   }
 }

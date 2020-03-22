@@ -18,7 +18,7 @@ const Hospitals = () => {
         <Box className={classes.root} display="flex" flexWrap="wrap">
             {getAllHospitals().map(hospitalData => {
                 return (
-                    <HospitalCard hospital={hospitalData} />
+                    <HospitalCard hospital={hospitalData} key={hospitalData.id} />
                 );
             })}
         </Box>

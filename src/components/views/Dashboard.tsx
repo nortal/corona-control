@@ -21,7 +21,6 @@ const useStyles = makeStyles(theme => ({
     },
     paper: {
         padding: theme.spacing(2),
-        backgroundColor: "#E7E6E6",
         display: 'flex',
         overflow: 'auto',
         flexDirection: 'column',
@@ -35,6 +34,7 @@ const useStyles = makeStyles(theme => ({
         height: 240,
     },
     title: {
+        marginLeft: "45px",
         fontFamily: "Nunito",
         fontStyle: "normal",
         fontWeight: "bold" as 'bold',
@@ -76,7 +76,6 @@ const sampleResourceTotals = [
 
 const Dashboard = () => {
     const classes = useStyles();
-    const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
     const [resourceStatistics, setResourceStatistics] = useState<ResourceStatistics[]>();
     const [resourceTotals, setResourceTotals] = useState<ResourceTotalCardProps[]>(sampleResourceTotals);
 
@@ -90,10 +89,10 @@ const Dashboard = () => {
     }, []);
 
     return resourceStatistics ? (
-        <Grid container spacing={3}>
+        <Grid container spacing={3} >
             <Typography className={classes.title}>{"Krankenhausübersicht"}</Typography>
             <Grid item xs={12}>
-                <Paper className={classes.paper}>
+                <div className={classes.paper}>
                     <div style={{marginLeft: "16px"}}>
                         <div className={classes.flexHorizontal} >
                             {resourceTotals.map((resourceTotal) => <ResourceTotalCard {...resourceTotal}/>)}
@@ -102,7 +101,7 @@ const Dashboard = () => {
                         {resourceStatistics.map((resourceStat) => <ResourceStatisticsCard {...resourceStat}/>)}
                         </div>
                     </div>
-                </Paper>
+                </div>
             </Grid>
         </Grid>
     ) : <div className={classes.loader}><CircularProgress /></div>;

@@ -54,11 +54,11 @@ const sampleStatistics = [{label: "Chirurgische Masken", nrOk: 50, nrLow: 150, n
         ]}];
 
 const sampleResourceTotals = [
-    {label: "COVID-19-Patienten", iconSrc: people, numberTotal: 234},
-    {label: "In Intensivstationen", iconSrc: ICU, numberTotal: 13},
-    {label: "ICU lvl 3", iconSrc: ICU, numberTotal: 2},
+    {label: "COVID-19 Patienten", iconSrc: people, numberTotal: 234},
+    {label: "Intensiv Patienten", iconSrc: ICU, numberTotal: 13},
+    {label: "Kritische Patienten", iconSrc: ICU, numberTotal: 2},
     {label: "Freie Betten", iconSrc: bed, numberTotal: 1203},
-    {label: "Ventilatoren", iconSrc: bed, numberTotal: 457},
+    {label: "Beatmungsgeräte", iconSrc: bed, numberTotal: 457},
     ];
 
 const Dashboard = () => {
